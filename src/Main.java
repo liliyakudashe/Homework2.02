@@ -1,124 +1,40 @@
 import transport.Bus;
-import transport.Car;
-import transport.Train;
-
-import java.time.LocalDate;
+import transport.PassengerCars;
+import transport.Trucks;
 
 public class Main {
     public static void main(String[] args) {
 
-        Car audi = new Car("Audi A8 50 L TDI",
-                "quattro",
-                2020 ,
-                3.0,
-                "чёрный",
-                365,
-                "Германия",
-                "механика",
-                "седан",
-                "B698LO235",
-                5,
-                true,
-                new Car.Key(false, false) ,
-                new Car.Insurance(LocalDate.now().plusMonths(3),1500.5f, "254698753"));
+        PassengerCars audi = new PassengerCars("Audi A8 50 L TDI", "quattro", 5.2,  258.68);
+        PassengerCars bmw = new  PassengerCars("BMW", "Z8", 2.5, 260.89);
+        PassengerCars kia = new PassengerCars("Kia", "Sportage 4-го поколения", 5.2, 230.50);
+        PassengerCars hyundai = new PassengerCars("Hyundai", "Avante", 2.5, 240.87);
 
-        Car bmw = new Car("BMW",
-                "Z8",
-                2021,
-                4.0,
-                "чёрный",
-                652,
-                "Германия",
-                "автомат",
-                "универсал",
-                "B458UY698",
-                6,
-                true,
-                new Car.Key(true, false),
-                new Car.Insurance(LocalDate.now().plusMonths(5),2500.5f, "236598745"));
-        Car kia = new Car("Kia",
-                "Sportage 4-го поколения",
-                2018,
-                1.4,
-                "красный",
-                250,
-                "Южная Корея",
-                "механика",
-                "хэчбэк",
-                "M258KI369",
-                5,
-                false,
-                new Car.Key(false, true),
-                new Car.Insurance(LocalDate.now().plusMonths(15),8500.8f, "896521357"));
-        Car hyundai = new Car("Hyundai",
-                "Avante",
-                2016,
-                1.6,
-                "оранжевый",
-                300,
-                "Южная Корея",
-                "автомат",
-                "кроссовер",
-                "K698IU125",
-                8,
-                true,
-                new Car.Key(true, true),
-                new Car.Insurance(LocalDate.now().plusMonths(1),6391.85f, "587963214"));
-
+        audi.startMoving();
         System.out.println(audi);
-        System.out.println(bmw);
-        System.out.println(kia);
-        System.out.println(hyundai);
+        audi.finishTheMovement();
 
-        Train swallow = new Train("Ласточка",
-                " B-901",
-                2011,
-                "Россия",
-                null,
-                301,
-                3500.0,
-                null,
-                " Белорусского вокзала",
-                "Минск-Пассажирский",
-                11);
+        Bus ikarus = new Bus("Икарус", "280", 3.5,  150.23);
+        Bus pas = new Bus("ПАЗ", "3205", 2.3, 160.52);
+        Bus las = new Bus("Лаз", "699", 2.5, 170.81);
+        Bus mersedes = new Bus("Мерседес", "856", 5.6,200.97);
 
-        Train leningrad = new Train("Ленинград",
-                " B-125",
-                2019,
-                "Россия",
-                null,
-                270,
-                1700.0,
-                null,
-                "Ленинградского вокзала",
-                "Ленинград-Пассажирский",
-                8);
-
-        System.out.println(swallow);
-        System.out.println(leningrad);
-
-        Bus ikarus = new Bus("Икарус", "280",
-                1998,
-                "Германия",
-                "красный",
-                100);
-        Bus pas = new Bus("ПАЗ",
-                "3205",
-                1856,
-                "Россия",
-                "белый",
-                60);
-
-        Bus las = new Bus("Лаз",
-                "699",
-                1978,
-                "Россия",
-                "зелёный",
-                50);
+        ikarus.startMoving();
         System.out.println(ikarus);
-        System.out.println(pas);
-        System.out.println(las);
+        ikarus.finishTheMovement();
+        ikarus.pitStop();
 
+        Trucks chery = new Trucks("Чери","589", 9.5, 260.88);
+        Trucks kamaz = new Trucks("Камаз", "586", 5.5, 200.90);
+        Trucks mazda = new Trucks("Мазда", "968", 8.4, 240.87);
+        Trucks chevrolet = new Trucks("Шевролет", "458", 9.5,220.56);
+
+        chery.startMoving();
+        System.out.println(chery);
+        chery.finishTheMovement();
+
+        CategoryCDriver fernando = new CategoryCDriver("Алонсо", "Фернандо", null, true, 5.2);
+        fernando.driverC(chery);
 
     }
 }
