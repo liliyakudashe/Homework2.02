@@ -1,20 +1,19 @@
 package transport;
 
+import java.util.Objects;
+
 public abstract class Transport {
+    private double maxspeed; // максемальная скорость
     private String stamp; //марка
     private String model; //модель
-    private final int yearOfProduction; // год выпуска
-    private final String countryOfAssembly; //страна производства
-    private String bodyColor; // цвет кузова
-    private double maximumSpeed; // максимальная скорость
+    private double engineCapacity;// объем двигателя
+    public boolean theCarBroke = true;//машина сломалась
 
-    public Transport(String stamp, String model, int yearOfProduction, String countryOfAssembly, String bodyColor, double maximumSpeed) {
+    public Transport(String stamp, String model, double engineCapacity, double maxspeed) {
         this.stamp = defaultValid(stamp, "Default");
         this.model = defaultValid(model, "Default");
-        this.yearOfProduction = yearOfProduction >= 0? yearOfProduction:2000;
-        this.countryOfAssembly = defaultValid(countryOfAssembly, "Default");
-        this.bodyColor = defaultValid(bodyColor, "Default");
-        this.maximumSpeed = maximumSpeed;
+        this.engineCapacity = Math.max(engineCapacity, 0);
+        this.maxspeed = Math.max(engineCapacity, 0);
     }
 
     public String defaultValid (String valid, String defaul){
@@ -25,47 +24,44 @@ public abstract class Transport {
         }
     }
 
-    protected abstract void refill();
+    protected abstract void startMoving();//начать движение
+
+    protected abstract void finishTheMovement(); //закончить движение
 
     public String getStamp() {
         return stamp;
-    }
-
-    public void setStamp(String stamp) {
-        this.stamp = defaultValid(stamp, "Default");
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = defaultValid(model, "Default");
+    public double getEngineCapacity() {
+        return engineCapacity;
     }
 
-    public int getYearOfProduction() {
-        return yearOfProduction;
+    public void setEngineCapacity(double engineCapacity) {
+        this.engineCapacity = Math.max(engineCapacity, 0);
     }
 
-    public String getCountryOfAssembly() {
-        return countryOfAssembly;
+    public double getMaxspeed() {
+        return maxspeed;
     }
 
-    public String getBodyColor() {
-        return bodyColor;
+    public void setMaxspeed(double maxspeed) {
+        this.maxspeed = Math.max(engineCapacity, 0);
     }
 
-    public void setBodyColor(String bodyColor) {
-        this.bodyColor = defaultValid(bodyColor, "Белый");
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return Double.compare(transport.engineCapacity, engineCapacity) == 0 && Objects.equals(stamp, transport.stamp) && Objects.equals(model, transport.model);
     }
 
-    public double getMaximumSpeed() {
-        return maximumSpeed;
+    @Override
+    public int hashCode() {
+        return Objects.hash(stamp, model, engineCapacity);
     }
-
-    public void setMaximumSpeed(double maximumSpeed) {
-        this.maximumSpeed = maximumSpeed;
-    }
-
-
 }
