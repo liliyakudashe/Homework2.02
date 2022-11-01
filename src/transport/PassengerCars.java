@@ -2,8 +2,24 @@ package transport;//легковые
 
 public class PassengerCars extends Transport implements Competing {
 
-    public PassengerCars(String stamp, String model, double engineCapacity, double maxspeed) {
+    private BodyTypeCars bodyTypeCars;
+
+    public PassengerCars(String stamp, String model, double engineCapacity, double maxspeed, BodyTypeCars bodyTypeCars) {
         super(stamp, model, engineCapacity, maxspeed);
+        this.bodyTypeCars = bodyTypeCars;
+    }
+
+    public BodyTypeCars getBodyTypeCars() {
+        return bodyTypeCars;
+    }
+
+    @Override
+    public void determineTheTypeOfCar() {
+        if (bodyTypeCars == null){
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Тип кузова авто " + bodyTypeCars.getTypeOfCarPassengers());
+        }
     }
 
     @Override

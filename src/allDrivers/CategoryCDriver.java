@@ -1,3 +1,5 @@
+package allDrivers;
+
 import transport.Trucks;
 
 public class CategoryCDriver extends Driver<Trucks> {

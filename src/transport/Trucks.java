@@ -2,8 +2,23 @@ package transport; //грузовые
 
 public class Trucks extends Transport implements Competing{
 
-    public Trucks(String stamp, String model, double engineCapacity, double maxspeed) {
+    private LoadCapacity loadCapacity;
+    public Trucks(String stamp, String model, double engineCapacity, double maxspeed, LoadCapacity loadCapacity) {
         super(stamp, model, engineCapacity, maxspeed);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    @Override
+    public void determineTheTypeOfCar() {
+        if (loadCapacity == null){
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Тип грузоподъемности " + loadCapacity.getTypeOfCarTrucks());
+        }
     }
 
     @Override

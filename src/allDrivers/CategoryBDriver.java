@@ -1,7 +1,11 @@
+package allDrivers;
+
 import transport.PassengerCars;
 import transport.Transport;
 
-public class CategoryBDriver extends Driver<PassengerCars>{
+public class CategoryBDriver extends Driver<PassengerCars> {
+
+
 
     public CategoryBDriver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience) {
         super(surname, name, patronymic, thePresenceOfADriversLicense, experience);

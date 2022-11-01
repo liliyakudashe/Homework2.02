@@ -4,8 +4,24 @@ import static java.lang.Character.isDigit;
 
 
 public class Bus extends Transport implements Competing {
-    public Bus(String stamp, String model, double engineCapacity, double maxspeed) {
+
+    private Capacity capacity;
+    public Bus(String stamp, String model, double engineCapacity, double maxspeed, Capacity capacity) {
         super(stamp, model, engineCapacity, maxspeed);
+        this.capacity = capacity;
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    @Override
+    public void determineTheTypeOfCar() {
+        if (capacity == null){
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Тип вместимости " + capacity.getTypeOfCarBus());
+        }
     }
 
     @Override

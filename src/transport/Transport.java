@@ -3,6 +3,8 @@ package transport;
 import java.util.Objects;
 
 public abstract class Transport {
+
+    private String infoNotTransport = "Информация не указана";
     private double maxspeed; // максемальная скорость
     private String stamp; //марка
     private String model; //модель
@@ -24,9 +26,11 @@ public abstract class Transport {
         }
     }
 
-    protected abstract void startMoving();//начать движение
+    public abstract void startMoving();//начать движение
 
-    protected abstract void finishTheMovement(); //закончить движение
+    public abstract void finishTheMovement(); //закончить движение
+
+   public abstract void determineTheTypeOfCar();
 
     public String getStamp() {
         return stamp;
@@ -50,6 +54,10 @@ public abstract class Transport {
 
     public void setMaxspeed(double maxspeed) {
         this.maxspeed = Math.max(engineCapacity, 0);
+    }
+
+    public String getInfoNotTransport() {
+        return infoNotTransport;
     }
 
     @Override
