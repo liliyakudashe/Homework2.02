@@ -30,7 +30,7 @@ public abstract class Transport {
 
     public abstract void finishTheMovement(); //закончить движение
 
-   public abstract void determineTheTypeOfCar();
+    public abstract void determineTheTypeOfCar();
 
     public String getStamp() {
         return stamp;
@@ -71,5 +71,7 @@ public abstract class Transport {
     @Override
     public int hashCode() {
         return Objects.hash(stamp, model, engineCapacity);
+
+
     }
 }

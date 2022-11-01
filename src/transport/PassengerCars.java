@@ -57,3 +57,4 @@ public class PassengerCars extends Transport implements Competing {
         return "Легковой автомобиль, модель: " + getModel() + ", марка "+ getStamp()+", объём двигателя "+getEngineCapacity()+"л.";
     }
 }
+

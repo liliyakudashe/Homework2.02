@@ -34,29 +34,31 @@ public class Bus extends Transport implements Competing {
     public double bestLapTime(double intervalCircus) {
         double maxTime = Integer.MIN_VALUE;
         maxTime = getMaxspeed()/intervalCircus;
-            System.out.println("Лучшее время круга " + getModel() + " " + getStamp());
+        System.out.println("Лучшее время круга " + getModel() + " " + getStamp());
         return maxTime;
     }
-        @Override
-        public double maximumSpeed(double interval) {
+    @Override
+    public double maximumSpeed(double interval) {
         double val = this.getMaxspeed() * interval;
-            return val;
-        }
+        return val;
+    }
 
-        @Override
-        public void startMoving () {
-            System.out.println("Автобус, модель: " + getStamp() + " " + getModel() + ", начал движение.");
-        }
+    @Override
+    public void startMoving () {
+        System.out.println("Автобус, модель: " + getStamp() + " " + getModel() + ", начал движение.");
+    }
 
-        @Override
-        public void finishTheMovement () {
-            System.out.println("Автобус, модель: " + getStamp() + " " + getModel() + ", закончил движенеие.");
-        }
+    @Override
+    public void finishTheMovement () {
+        System.out.println("Автобус, модель: " + getStamp() + " " + getModel() + ", закончил движенеие.");
+    }
 
-        @Override
-        public String toString () {
-            return "Автобус, модель: " + getModel() + ", марка " + getStamp() + ", объём двигателя " + getEngineCapacity() + "л.";
-        }
+    @Override
+    public String toString () {
+        return "Автобус, модель: " + getModel() + ", марка " + getStamp() + ", объём двигателя " + getEngineCapacity() + "л.";
+    }
 
 
 }
+
+
