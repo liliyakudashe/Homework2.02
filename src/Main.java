@@ -8,7 +8,7 @@ import transport.Trucks;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
 
 
         PassengerCars audi = new PassengerCars("Audi A8 50 L TDI", "quattro", 5.2,  258.68, BodyTypeCars.PICKUP_TRUCK);
@@ -46,8 +46,9 @@ public class Main {
         System.out.println(chery);
         chery.finishTheMovement();
 
-        CategoryCDriver fernando = new CategoryCDriver("Алонсо", "Фернандо", null, true, 5.2);
+        CategoryCDriver fernando = new CategoryCDriver("Алонсо", "Фернандо", null, true, 5.2,chery );
         fernando.driverC(chery);
+
 
     }
 }

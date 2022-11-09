@@ -30,7 +30,9 @@ public abstract class Transport {
 
     public abstract void finishTheMovement(); //закончить движение
 
-    public abstract void determineTheTypeOfCar();
+    public abstract void determineTheTypeOfCar(); // определить тип автомобиля
+
+    public abstract boolean passDiagnostics(); // пройти диагностику
 
     public String getStamp() {
         return stamp;

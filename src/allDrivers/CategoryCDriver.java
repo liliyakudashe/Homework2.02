@@ -3,8 +3,8 @@ package allDrivers;
 import transport.Trucks;
 
 public class CategoryCDriver extends Driver<Trucks> {
-    public CategoryCDriver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience) {
-        super(surname, name, patronymic, thePresenceOfADriversLicense, experience);
+    public CategoryCDriver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience, Trucks category) throws IllegalAccessException {
+        super(surname, name, patronymic, thePresenceOfADriversLicense, experience, "C");
     }
 
     public void driverC(Trucks trucks){

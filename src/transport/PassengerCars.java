@@ -53,6 +53,11 @@ public class PassengerCars extends Transport implements Competing {
     }
 
     @Override
+    public boolean passDiagnostics() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "Легковой автомобиль, модель: " + getModel() + ", марка "+ getStamp()+", объём двигателя "+getEngineCapacity()+"л.";
     }

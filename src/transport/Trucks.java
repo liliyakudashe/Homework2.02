@@ -52,6 +52,11 @@ public class Trucks extends Transport implements Competing{
     }
 
     @Override
+    public boolean passDiagnostics() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "Грузовой автомобиль, модель: " + getModel() + ", марка "+ getStamp()+", объём двигателя "+getEngineCapacity()+"л.";
     }

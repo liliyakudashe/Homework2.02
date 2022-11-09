@@ -1,8 +1,10 @@
 package allDrivers;
 
+import transport.Transport;
+
 import java.util.Objects;
 
-public abstract class Driver<A> {
+public abstract class Driver<A extends Transport> {
 
     private boolean petrol = true;//бензин
     private String infoNot = "Информация не указана";
@@ -11,13 +13,15 @@ public abstract class Driver<A> {
     private String patronymic;//отчество
     private boolean thePresenceOfADriversLicense = true;//наличие водительских прав
     private double experience; //стаж
+    private String category; //категория
 
-    public Driver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience) {
+    public Driver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience, String category) throws IllegalAccessException {
         this.surname = defaultValidDriver(surname, infoNot);
         this.name = defaultValidDriver(name, infoNot);
         this.patronymic = defaultValidDriver(patronymic, infoNot);
         this.thePresenceOfADriversLicense = thePresenceOfADriversLicense;
         this.experience = experience >= 0 ? experience:0;
+        setCategory(category);
     }
 
     public String defaultValidDriver (String valid, String defaul){
@@ -79,6 +83,17 @@ public abstract class Driver<A> {
 
     public void setExperience(double experience) {
         this.experience = experience >= 0 ? experience:0;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) throws IllegalAccessException {
+        if (category==null){
+            throw new IllegalAccessException("Необходимо указать тип прав!");
+        }
+        this.category = category;
     }
 
     @Override

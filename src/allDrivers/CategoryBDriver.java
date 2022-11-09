@@ -6,9 +6,8 @@ import transport.Transport;
 public class CategoryBDriver extends Driver<PassengerCars> {
 
 
-
-    public CategoryBDriver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience) {
-        super(surname, name, patronymic, thePresenceOfADriversLicense, experience);
+    public CategoryBDriver(String surname, String name, String patronymic, boolean thePresenceOfADriversLicense, double experience, PassengerCars category) throws IllegalAccessException {
+        super(surname, name, patronymic, thePresenceOfADriversLicense, experience, "B");
     }
 
     public void driverB (PassengerCars cars){
