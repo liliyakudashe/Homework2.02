@@ -22,6 +22,16 @@ public class Trucks extends Transport implements Competing{
     }
 
     @Override
+    public boolean passDiagnostics() {
+        return false;
+    }
+
+    @Override
+    public void fix() {
+        System.out.println("Грузовик " + getStamp() + " " + getModel() + " починен");
+    }
+
+    @Override
     public void pitStop() {
         if (!theCarBroke)
             System.out.println(getStamp()+ " "+ getModel()+ " требуется быстрый ремонт и проверка технического состояния машины.");
@@ -49,11 +59,6 @@ public class Trucks extends Transport implements Competing{
     @Override
     public void finishTheMovement() {
         System.out.println("Грузовой автомобиль, модель: "+ getStamp()+ " "+ getModel() +  ", закончил движенеие.");
-    }
-
-    @Override
-    public boolean passDiagnostics() {
-        return false;
     }
 
     @Override
