@@ -9,7 +9,9 @@ import transport.Bus;
 import transport.PassengerCars;
 import transport.Trucks;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class Main {
@@ -74,11 +76,29 @@ public class Main {
         serviceStation.addPassengerCars(audi);
         serviceStation.service();
 
-        List<Transport> transports = List.of(audi,bmw,kia,hyundai,ikarus,pas,las,mersedes,chery,kamaz,mazda,chevrolet);
+        Set<Sponsor> sponsors = new HashSet<>();
+        sponsors.add(ingata);
+        sponsors.add(powerWheel);
+        sponsors.add(dasviano);
+        sponsors.add(gupanoRacing);
+        sponsors.add(gupanoRacing);
+        System.out.println(sponsors);
 
-        for (Transport transport: transports){
-            print(transport);
-        }
+        Set<Transport> transports = new HashSet<>();
+        transports.add(audi);
+        transports.add(kia);
+        transports.add(hyundai);
+        transports.add(hyundai);
+        System.out.println(transports);
+
+        Set<Driver> drivers = new HashSet<>();
+        drivers.add(fernando);
+        drivers.add(adams);
+        drivers.add(kris);
+        drivers.add(dibli);
+        drivers.add(dibli);
+        System.out.println(drivers);
+
 
     }
     public static void print(Transport transport){

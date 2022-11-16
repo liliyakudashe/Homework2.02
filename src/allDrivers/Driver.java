@@ -96,6 +96,12 @@ public abstract class Driver<A extends Transport> {
         this.category = category;
     }
 
+
+    @Override
+    public String toString() {
+        return "Водитель " + name + " " + surname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
